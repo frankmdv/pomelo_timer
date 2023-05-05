@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-poppins text-white;
+  }
+}
+
+@layer components {
+  .progress-circle {
+    --radio: calc(50% - 1px);
+    --full-stroke: calc(2 * 3.1416 * var(--radio));
+    cx: 50%;
+    cy: 50%;
+    r: var(--radio);
+    stroke-dasharray: var(--full-stroke);
+    stroke-dashoffset: 90;
+    filter: drop-shadow(0 0 3px theme(colors.green.cyan));
+    @apply stroke-green-cyan stroke-2 fill-transparent;
+  }
+}
