@@ -9,15 +9,36 @@
 }
 
 @layer components {
+  .full-timer-grid {
+    grid-template-rows: auto 1fr;
+    @apply h-screen grid;
+  }
+
+  @media screen(xl) {
+    .full-timer-grid {
+      grid-template-columns: 65% 35%;
+      grid-template-rows: 100%;
+      min-height: 645px;
+    }
+  }
+
+  .timer-content {
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    @apply relative flex justify-center items-center;
+    @apply bg-gradient-to-br from-black-carbon from-10%;
+    @apply to-black to-65% rounded-full;
+  }
+
   .progress-circle {
     --radio: calc(50% - 1px);
-    --full-stroke: calc(2 * 3.1416 * var(--radio));
+    --circunference-length: calc(2 * 3.1416 * var(--radio));
     cx: 50%;
     cy: 50%;
     r: var(--radio);
-    stroke-dasharray: var(--full-stroke);
-    stroke-dashoffset: 90;
-    filter: drop-shadow(0 0 3px theme(colors.green.cyan));
+    stroke-dasharray: var(--circunference-length);
+    stroke-dashoffset: calc((100 - 50) * var(--circunference-length) / 100);
+    filter: drop-shadow(0 0 10px theme(colors.green.cyan));
     @apply stroke-green-cyan stroke-2 fill-transparent;
   }
 }

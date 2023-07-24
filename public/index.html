@@ -4,6 +4,7 @@
     <title>Pomelo Timer</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="../src/imgs/pomelo_icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,11 +14,18 @@
     <link href="../dist/css/output.css" rel="stylesheet" />
   </head>
   <body>
-    <div>
-      <div class="pb-14 bg-square bg-black">
+    <div class="full-timer-grid">
+      <div
+        class="pb-14 bg-square bg-black xl:pb-0 xl:relative xl:overflow-y-scroll xl:scrollbar-hide"
+      >
         <!-- Header -->
-        <header class="relative pt-4">
-          <div class="relative z-50 flex justify-center items-center">
+        <header class="relative pt-4 xl:absolute">
+          <div
+            class="w-80 h-80 absolute bottom-2 left-1/2 -translate-x-1/2 bg-red-brown-desaturated bg-opacity-70 rounded-full blur-5xl md:-left-24 md:-top-52 md:translate-x-0"
+          ></div>
+          <div
+            class="relative flex justify-center items-center md:justify-start md:pl-16"
+          >
             <svg
               width="23"
               height="31"
@@ -47,56 +55,85 @@
               Pomelo
             </h1>
           </div>
-          <div
-            class="w-80 h-80 absolute z-40 bottom-2 left-1/2 -translate-x-1/2 bg-red-brown-desaturated bg-opacity-70 rounded-full blur-[100px]"
-          ></div>
         </header>
 
         <!-- Timer section -->
-        <div class="pt-20 pb-14 flex flex-col items-center">
-          <div class="space-x-9">
-            <button
-              class="pb-2 border-b-2 border-solid border-b-green-cyan tracking-tighter"
-            >
-              Pomodoro
-            </button>
-            <button class="pb-2 tracking-tighter">Descanso</button>
-          </div>
-
-          <div class="w-80 h-80 mt-9 relative">
-            <div
-              class="w-full h-full relative flex justify-center items-center bg-gradient-to-br from-black-carbon from-10% to-black to-65% rounded-full"
-            >
-              <span class="font-roboto text-[5.3rem] tracking-tighter"
-                >25:00</span
+        <div class="xl:h-full xl:flex xl:flex-col xl:justify-center">
+          <div
+            class="pt-20 pb-14 flex flex-col items-center xl:pt-0 xl:pb-10 2xl:pb-16"
+          >
+            <div class="space-x-9">
+              <button
+                class="pb-2 border-b-2 border-b-green-cyan tracking-tighter md:text-lg"
               >
-              <div class="absolute bottom-10 flex flex-col items-center">
-                <span class="font-roboto text-green-cyan tracking-tighter"
-                  >Pomodoro</span
+                Pomodoro
+              </button>
+              <button
+                class="pb-2 border-b-2 border-b-transparent tracking-tighter md:text-lg"
+              >
+                Descanso
+              </button>
+            </div>
+
+            <div
+              class="w-80 h-80 relative mt-10 flex justify-center items-center bg-black rounded-full md:w-87 md:h-87 2xl:mt-16"
+            >
+              <svg
+                class="w-full h-full absolute top-0 left-0 -rotate-90 overflow-visible"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle class="progress-circle"></circle>
+              </svg>
+              <div class="timer-content">
+                <span
+                  class="font-roboto text-[5.3rem] tracking-tighter md:text-8xl"
+                  >25:00</span
                 >
-                <span class="font-roboto mt-1 tracking-tighter">0/5</span>
+                <div class="absolute bottom-10 flex flex-col items-center">
+                  <span
+                    class="font-roboto text-green-cyan tracking-tighter md:text-lg"
+                    >Pomodoros</span
+                  >
+                  <span class="font-roboto mt-1 tracking-tighter md:text-lg"
+                    >0/5</span
+                  >
+                </div>
               </div>
             </div>
-            <svg
-              class="absolute top-0 left-0 -rotate-90"
-              width="100%"
-              height="100%"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle class="progress-circle"></circle>
-            </svg>
           </div>
-        </div>
 
-        <div class="flex justify-center gap-x-6">
-          <div class="flex flex-col items-center">
-            <div class="grow flex items-center">
+          <div class="flex justify-center gap-x-6">
+            <div class="flex flex-col items-center">
+              <div class="grow flex items-center">
+                <button
+                  class="w-11 h-11 flex justify-center items-center bg-gray-slate rounded-full sm:w-11.5 sm:h-11.5 md:w-12.5 md:h-12.5"
+                  type="button"
+                >
+                  <div class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5">
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.8334 4.38226L11.6667 1.2742C10.6667 0.686188 9.41675 0.686188 8.41675 1.2742L3.16675 4.38226C2.25008 4.97027 1.66675 6.06229 1.66675 7.15431V12.7824C1.66675 13.8744 2.25008 14.9664 3.16675 15.5545L8.33341 18.7465C8.83342 19.0825 9.41675 19.1665 10.0001 19.1665C10.5834 19.1665 11.1667 18.9985 11.6667 18.7465L16.8334 15.6385C17.7501 15.0504 18.3334 14.0424 18.3334 12.8664V7.15431C18.3334 6.06229 17.7501 4.97027 16.8334 4.38226ZM10.0001 13.1184C8.33341 13.1184 6.91675 11.6904 6.91675 10.0104C6.91675 8.33033 8.25008 6.9023 10.0001 6.9023C11.7501 6.9023 13.0834 8.24633 13.0834 10.0104C13.0834 11.6904 11.6667 13.1184 10.0001 13.1184Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <span class="mt-3 text-xs font-medium md:text-sm">Ajustes</span>
+            </div>
+            <div class="flex flex-col items-center">
               <button
-                class="w-11 h-11 flex justify-center items-center bg-gray-slate rounded-full"
+                class="p-5 grow bg-gradient-to-br from-black-carbon from-30% to-black to-100% rounded-full sm:p-5.5 md:p-6.5"
                 type="button"
               >
-                <div class="w-4 h-4">
+                <div class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5">
                   <svg
                     width="100%"
                     height="100%"
@@ -105,81 +142,61 @@
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M16.8334 4.38226L11.6667 1.2742C10.6667 0.686188 9.41675 0.686188 8.41675 1.2742L3.16675 4.38226C2.25008 4.97027 1.66675 6.06229 1.66675 7.15431V12.7824C1.66675 13.8744 2.25008 14.9664 3.16675 15.5545L8.33341 18.7465C8.83342 19.0825 9.41675 19.1665 10.0001 19.1665C10.5834 19.1665 11.1667 18.9985 11.6667 18.7465L16.8334 15.6385C17.7501 15.0504 18.3334 14.0424 18.3334 12.8664V7.15431C18.3334 6.06229 17.7501 4.97027 16.8334 4.38226ZM10.0001 13.1184C8.33341 13.1184 6.91675 11.6904 6.91675 10.0104C6.91675 8.33033 8.25008 6.9023 10.0001 6.9023C11.7501 6.9023 13.0834 8.24633 13.0834 10.0104C13.0834 11.6904 11.6667 13.1184 10.0001 13.1184Z"
+                      d="M6.14289 18.3335H4.68573C3.47144 18.3335 2.5 17.3335 2.5 16.0835V3.91681C2.5 2.66681 3.47144 1.66681 4.68573 1.66681H6.14289C7.35718 1.66681 8.32862 2.66681 8.32862 3.91681V16.0001C8.40957 17.3335 7.43814 18.3335 6.14289 18.3335Z"
                       fill="white"
                     />
-                  </svg>
-                </div>
-              </button>
-            </div>
-            <span class="mt-3 text-xs font-medium">Ajustes</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <button
-              class="p-5 grow bg-gradient-to-br from-black-carbon from-30% to-black to-100% rounded-full"
-              type="button"
-            >
-              <div class="w-4 h-4">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6.14289 18.3335H4.68573C3.47144 18.3335 2.5 17.3335 2.5 16.0835V3.91681C2.5 2.66681 3.47144 1.66681 4.68573 1.66681H6.14289C7.35718 1.66681 8.32862 2.66681 8.32862 3.91681V16.0001C8.40957 17.3335 7.43814 18.3335 6.14289 18.3335Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M15.3125 18.3335H13.8542C12.6389 18.3335 11.6667 17.3335 11.6667 16.0835V3.91681C11.6667 2.66681 12.6389 1.66681 13.8542 1.66681H15.3125C16.5278 1.66681 17.5 2.66681 17.5 3.91681V16.0001C17.5 17.3335 16.5278 18.3335 15.3125 18.3335Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-            </button>
-            <span class="mt-3 text-xs font-medium">Pausar</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="grow flex items-center">
-              <button
-                class="w-11 h-11 flex justify-center items-center bg-red border-2 border-solid border-white rounded-full"
-                type="button"
-              >
-                <div class="w-3 h-3">
-                  <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
                     <path
-                      d="M11.2584 12.8334H2.74175C1.86675 12.8334 1.16675 12.1334 1.16675 11.2584V2.74175C1.16675 1.86675 1.86675 1.16675 2.74175 1.16675H11.2001C12.1334 1.16675 12.8334 1.86675 12.8334 2.74175V11.2001C12.8334 12.1334 12.1334 12.8334 11.2584 12.8334Z"
+                      d="M15.3125 18.3335H13.8542C12.6389 18.3335 11.6667 17.3335 11.6667 16.0835V3.91681C11.6667 2.66681 12.6389 1.66681 13.8542 1.66681H15.3125C16.5278 1.66681 17.5 2.66681 17.5 3.91681V16.0001C17.5 17.3335 16.5278 18.3335 15.3125 18.3335Z"
                       fill="white"
                     />
                   </svg>
                 </div>
               </button>
+              <span class="mt-3 text-xs font-medium md:text-sm">Pausar</span>
             </div>
-            <span class="mt-3 text-xs font-medium">Ajustes</span>
+            <div class="flex flex-col items-center">
+              <div class="grow flex items-center">
+                <button
+                  class="w-11 h-11 flex justify-center items-center bg-red border-2 border-solid border-white rounded-full sm:w-11.5 sm:h-11.5 md:w-12.5 md:h-12.5"
+                  type="button"
+                >
+                  <div class="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.2584 12.8334H2.74175C1.86675 12.8334 1.16675 12.1334 1.16675 11.2584V2.74175C1.16675 1.86675 1.86675 1.16675 2.74175 1.16675H11.2001C12.1334 1.16675 12.8334 1.86675 12.8334 2.74175V11.2001C12.8334 12.1334 12.1334 12.8334 11.2584 12.8334Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <span class="mt-3 text-xs font-medium md:text-sm">Detener</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Tasks section -->
       <div
-        class="pt-9 pb-52 flex justify-center items-center bg-black border-t-2 border-solid border-gray-taupe"
+        class="pt-9 pb-52 flex justify-center bg-black border-t border-solid border-gray-taupe xl:pt-11 xl:border-t-0 xl:border-l xl:items-start xl:overflow-y-scroll scrollbar-hide"
       >
-        <div class="w-80">
+        <div class="w-80 sm:w-104 md:w-248 xl:w-11/12">
           <!-- Add new task section -->
           <div>
             <button
               class="w-full py-2.5 relative bg-black-traffic rounded border border-solid border-gray-graphite leading-none"
               type="button"
             >
-              <span class="text-xs">Agregar una nueva tarea</span>
-              <div class="w-3 h-3 absolute top-1/2 right-2 -translate-y-1/2">
+              <span class="text-xs sm:text-sm">Agregar una nueva tarea</span>
+              <div
+                class="w-3 h-3 absolute top-1/2 right-2 -translate-y-1/2 sm:w-3.5 sm:h-3.5"
+              >
                 <svg
                   width="100%"
                   height="100%"
@@ -199,21 +216,19 @@
               class="mt-8 bg-black-traffic rounded border border-solid border-gray-graphite"
             >
               <textarea
-                class="w-full h-16 p-2.5 bg-transparent text-xs text-gray resize-none outline-none scrollbar-hide placeholder:text-gray"
-                rows=""
-                cols=""
+                class="w-full h-16 p-2.5 bg-transparent text-xs text-gray resize-none outline-none scrollbar-hide placeholder:text-gray sm:text-sm"
                 placeholder="Describe tu tarea"
               ></textarea>
               <div
                 class="pr-2.5 pt-2.5 pb-2 flex justify-end gap-x-3 border-t border-solid border-gray-graphite"
               >
                 <input
-                  class="w-20 py-1 text-[.625rem] bg-green rounded"
+                  class="w-20 py-1 text-[.625rem] bg-green rounded sm:w-24 sm:text-xs cursor-pointer"
                   type="button"
                   value="Guardar"
                 />
                 <input
-                  class="w-20 py-1 text-[.625rem] bg-gray-metalic rounded"
+                  class="w-20 py-1 text-[.625rem] bg-gray-metalic rounded sm:w-24 sm:text-xs cursor-pointer"
                   type="button"
                   value="Cancelar"
                 />
@@ -222,26 +237,26 @@
           </div>
 
           <!-- Active task section -->
-          <ul class="mt-4">
+          <ul class="mt-4 space-y-4">
             <li
               class="py-2 px-2.5 flex justify-between gap-x-3 bg-black-traffic rounded border border-solid border-gray-graphite"
             >
-              <div class="flex gap-x-3 self-center">
+              <div class="flex items-center gap-x-3 self-center">
                 <label
-                  class="inline-block w-3.5 h-3.5 rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0"
+                  class="inline-block w-3.5 h-3.5 rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
                 >
                   <input class="hidden" type="checkbox" />
                 </label>
-                <span class="text-xs text-gray"
+                <span class="text-xs text-gray sm:text-sm"
                   >Hacer el diseño del pomodoro
                 </span>
               </div>
               <div class="flex space-x-2 shrink-0">
                 <button
-                  class="w-6 h-6 flex justify-center items-center bg-gray-slate rounded-md"
+                  class="w-6 h-6 flex justify-center items-center bg-gray-slate rounded-md sm:w-6.5 sm:h-6.5"
                   type="button"
                 >
-                  <div class="w-3 h-3">
+                  <div class="w-3 h-3 sm:w-3.5 sm:h-3.5">
                     <svg
                       width="100%"
                       height="100%"
@@ -257,10 +272,10 @@
                   </div>
                 </button>
                 <button
-                  class="w-6 h-6 flex justify-center items-center bg-gray-slate rounded-md"
+                  class="w-6 h-6 flex justify-center items-center bg-gray-slate rounded-md sm:w-6.5 sm:h-6.5"
                   type="button"
                 >
-                  <div class="w-3 h-3">
+                  <div class="w-3 h-3 sm:w-3.5 sm:h-3.5">
                     <svg
                       width="100%"
                       height="100%"
@@ -280,14 +295,16 @@
           </ul>
 
           <!-- Inactive tasks section -->
-          <ul class="mt-5 pt-4 border-t border-solid border-gray-taupe">
+          <ul
+            class="mt-5 pt-4 border-t border-solid border-gray-taupe space-y-4"
+          >
             <li
-              class="py-2 px-2.5 flex gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
             >
               <label
-                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0"
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
               >
-                <div class="w-2 h-1.5">
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
                   <svg
                     width="100%"
                     height="100%"
@@ -304,8 +321,317 @@
 
                 <input class="hidden" type="checkbox" />
               </label>
-              <span class="text-xs text-gray-metalic line-through"
-                >Hacer el diseño del pomodoro</span
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
+              >
+            </li>
+            <li
+              class="py-2 px-2.5 min-h-[2.75rem] flex items-center gap-x-3 bg-black-onyx rounded border border-solid border-black-carbon"
+            >
+              <label
+                class="w-3.5 h-3.5 flex justify-center items-center bg-gray-graphite rounded-full border border-solid border-gray-graphite cursor-pointer shrink-0 sm:w-4.5 sm:h-4.5"
+              >
+                <div class="w-2 h-1.5 sm:w-2.5 sm:h-2">
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.49673 0.770826C8.44412 0.719774 8.38153 0.679253 8.31257 0.6516C8.2436 0.623948 8.16963 0.609711 8.09492 0.609711C8.02021 0.609711 7.94624 0.623948 7.87727 0.6516C7.80831 0.679253 7.74572 0.719774 7.69311 0.770826L3.47688 4.83415L1.7055 3.12385C1.65087 3.07306 1.58639 3.03313 1.51573 3.00633C1.44507 2.97953 1.36962 2.96639 1.29368 2.96765C1.21774 2.96892 1.14281 2.98456 1.07315 3.0137C1.0035 3.04284 0.940489 3.08489 0.887722 3.13747C0.834954 3.19004 0.793463 3.2521 0.765617 3.32011C0.737771 3.38811 0.724115 3.46073 0.725428 3.53382C0.726742 3.6069 0.743 3.67902 0.773274 3.74606C0.803548 3.8131 0.847245 3.87374 0.90187 3.92453L3.07507 6.01611C3.12768 6.06716 3.19027 6.10768 3.25923 6.13533C3.3282 6.16298 3.40217 6.17722 3.47688 6.17722C3.55159 6.17722 3.62556 6.16298 3.69453 6.13533C3.76349 6.10768 3.82608 6.06716 3.8787 6.01611L8.49673 1.57151C8.55418 1.5205 8.60003 1.4586 8.63138 1.3897C8.66274 1.32079 8.67893 1.24639 8.67893 1.17117C8.67893 1.09595 8.66274 1.02154 8.63138 0.952638C8.60003 0.883736 8.55418 0.821832 8.49673 0.770826Z"
+                      fill="#0C0C0C"
+                    />
+                  </svg>
+                </div>
+
+                <input class="hidden" type="checkbox" />
+              </label>
+              <span class="text-xs text-gray-metalic line-through sm:text-sm"
+                >Hacer el diseño del pomodoro Hacer el diseño del pomodoro Hacer
+                el diseño del pomodoro Hacer el diseño del pomodoro</span
               >
             </li>
           </ul>
